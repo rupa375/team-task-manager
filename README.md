@@ -1,33 +1,41 @@
-🚀 Team Task Manager
+# 🚀 Team Task Manager
 
 Hi, I built this project to solve a simple problem I noticed while working on group assignments and small team projects — it gets messy to track who is doing what, deadlines get missed, and communication is scattered.
 
-So I created Team Task Manager, a full-stack web app where teams can manage tasks, assign work, and track progress in one place.
+So I created **Team Task Manager**, a full-stack web app where teams can manage tasks, assign work, and track progress in one place.
 
-💡 What this project does
+---
+
+## 💡 What this project does
 
 This app allows users to:
 
-Create and manage tasks
-Assign tasks to team members
-Update task status (To Do → In Progress → Done)
-Set deadlines and priorities
-Track overall progress of work
+- Create and manage tasks  
+- Assign tasks to team members  
+- Update task status (To Do → In Progress → Done)  
+- Set deadlines and priorities  
+- Track overall progress of work  
 
 The idea was to keep it simple but useful — something that can actually be used in real projects.
 
-🛠️ Tech I used
+---
+
+## 🛠️ Tech I used
 
 I didn’t overcomplicate the stack. I focused on things I’m comfortable with:
 
-Frontend: React.js
-Backend: Node.js + Express
-Database: MongoDB
-Authentication: JWT
-⚙️ How to run this project
+- **Frontend:** React.js  
+- **Backend:** Node.js + Express  
+- **Database:** MongoDB  
+- **Authentication:** JWT  
+
+---
+
+## ⚙️ How to run this project
 
 If you want to try it locally:
 
+```bash
 git clone https://github.com/your-username/team-task-manager.git
 cd team-task-manager
 Backend setup:
@@ -53,4 +61,4 @@ How to structure a full-stack application
 Handling authentication with JWT
 Working with MongoDB and APIs
 Managing state and data flow in React
-Debugging real-world issues 
+Debugging real-world issues
