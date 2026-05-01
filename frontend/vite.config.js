@@ -7,7 +7,7 @@ export default defineConfig({
     port: 3000,
     proxy: {
       '/api': {
-        target: 'http://localhost:5000',
+        target: 'https://team-task-manager-production-7115.up.railway.app',
         changeOrigin: true,
       },
     },
