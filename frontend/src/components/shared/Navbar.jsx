@@ -60,7 +60,10 @@ const Navbar = () => {
         <Link to="/" style={styles.link}>Dashboard</Link>
         <Link to="/projects" style={styles.link}>Projects</Link>
         <Link to="/tasks" style={styles.link}>Tasks</Link>
-        <span style={styles.userTag}>👤 {user?.name}</span>
+        {user?.role === "admin" && (
+          <Link to="/admin" style={{ ...styles.link, color: "#f6ad55" }}>⚙ Admin</Link>
+        )}
+        <span style={styles.userTag}>👤 {user?.name} ({user?.role})</span>
         <button style={styles.btn} onClick={handleLogout}>Logout</button>
       </div>
     </nav>

@@ -82,5 +82,39 @@ const getMe = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+//for admin
+const promoteToAdmin = async (req, res) => {
+  try {
+    const { email } = req.body;
 
-module.exports = { signup, login, getMe };
+    if (!email) {
+      return res.status(400).json({ message: "Email is required" });
+    }
+
+    const userToPromote = await User.findOne({ email });
+    if (!userToPromote) {
+      return res.status(404).json({ message: "User not found with that email" });
+    }
+
+    if (userToPromote.role === "admin") {
+      return res.status(400).json({ message: "User is already an admin" });
+    }
+
+    userToPromote.role = "admin";
+    await userToPromote.save();
+
+    res.json({
+      message: `${userToPromote.name} has been promoted to admin`,
+      user: {
+        _id: userToPromote._id,
+        name: userToPromote.name,
+        email: userToPromote.email,
+        role: userToPromote.role,
+      },
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+// AFTER — just add promoteToAdmin
+module.exports = { signup, login, getMe, promoteToAdmin };

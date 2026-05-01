@@ -6,7 +6,9 @@ import DashboardPage from "../pages/DashboardPage";
 import ProjectsPage from "../pages/ProjectsPage";
 import ProjectDetailPage from "../pages/ProjectDetailPage";
 import TasksPage from "../pages/TasksPage";
+import AdminPage from "../pages/AdminPage";          
 import ProtectedRoute from "../components/shared/ProtectedRoute";
+import AdminRoute from "../components/shared/AdminRoute"; 
 
 const AppRouter = () => {
   return (
@@ -19,6 +21,9 @@ const AppRouter = () => {
         <Route path="/projects" element={<ProtectedRoute><ProjectsPage /></ProtectedRoute>} />
         <Route path="/projects/:id" element={<ProtectedRoute><ProjectDetailPage /></ProtectedRoute>} />
         <Route path="/tasks" element={<ProtectedRoute><TasksPage /></ProtectedRoute>} />
+
+        
+        <Route path="/admin" element={<AdminRoute><AdminPage /></AdminRoute>} />
 
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>

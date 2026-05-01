@@ -136,7 +136,7 @@ const updateTask = async (req, res) => {
   }
 };
 
-// DELETE /api/tasks/:id  — Admin deletes task
+// ADMIN delte
 const deleteTask = async (req, res) => {
   try {
     const task = await Task.findById(req.params.id).populate("project");
@@ -155,5 +155,19 @@ const deleteTask = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+// GET /api/tasks/my  — Get all tasks assigned to the logged-in user
+const getMyTasks = async (req, res) => {
+  try {
+    const tasks = await Task.find({ assignedTo: req.user._id })
+      .populate("assignedTo", "name email")
+      .populate("createdBy", "name email")
+      .populate("project", "name")
+      .sort({ createdAt: -1 });
 
-module.exports = { createTask, getTasks, updateTask, deleteTask };
+    res.json(tasks);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+module.exports = { createTask, getTasks, updateTask, deleteTask, getMyTasks };

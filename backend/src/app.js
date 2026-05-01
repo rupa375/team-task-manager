@@ -10,7 +10,10 @@ const errorHandler = require("./middleware/errorHandler");
 
 const app = express();
 
-app.use(cors({ origin: "*" }));
+app.use(cors({
+  origin: process.env.CLIENT_URL || "http://localhost:3000",
+  credentials: true,
+}));
 app.use(express.json());
 
 app.get("/api/health", (req, res) => res.json({ status: "ok" }));
